@@ -7,11 +7,6 @@
 
 #include "Toy.hpp"
 
-/*std::string Toy::getAscii() const
-{
-        return (_ascii);
-}*/
-
 Toy::Toy(const Toy& this_toy)
 {
         _name = this_toy.getName();
@@ -32,6 +27,10 @@ Toy::Toy() : _type(ToyType::BASIC_TOY), _name("toy"), _picture(new Picture())
 }
 
 Toy::Toy(ToyType type, const std::string &name, const std::string &file) : _type(type), _name(name), _picture(new Picture(file))
+{
+}
+
+Toy::Toy()
 {
 }
 
