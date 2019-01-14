@@ -10,7 +10,8 @@
 Toy::Toy(const Toy& this_toy)
 {
         _name = this_toy.getName();
-        _type = this_toy.getType();
+	_type = this_toy.getType();
+	_picture = new Picture;
         _picture->_data = this_toy.getAscii();
 }
 
@@ -49,13 +50,12 @@ std::string Toy::getAscii() const
 	return (_picture->_data);
 }
 
-void Toy::setAscii(const std::string &file)
+bool Toy::setAscii(const std::string &file)
 {
-	_picture->getPictureFromFile(file);
+	return this->_picture->getPictureFromFile(file);
 }
 
 void Toy::setName(const std::string &name)
 {
 	_name = name;
 }
-
