@@ -17,7 +17,7 @@
 		public:
 		enum ToyType {
 			BASIC_TOY,
-			ALIEN
+			ALIEN,
 		};
 		Toy();
 		Toy(ToyType type, const std::string &name, const std::string &file);
