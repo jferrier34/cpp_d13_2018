@@ -15,7 +15,8 @@
 
 class Buzz : public Toy {
         public:
-                Buzz(std::string const &name, std::string const &file = "buzz.txt");
+    Buzz(std::string const &_name);
+    Buzz(std::string const &_name, std::string const &file);
         ~Buzz();
 };
 
