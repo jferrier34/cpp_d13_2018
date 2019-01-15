@@ -1,45 +1,38 @@
 /*
 ** EPITECH PROJECT, 2019
-** Toy.hpp
+** 
 ** File description:
-** ex00
+** 
 */
 
-#ifndef _TOY_HPP_
-#define _TOY_HPP_
 
-#include <iostream>
+#ifndef TOY_HPP_
+#define TOY_HPP_
+
 #include <string>
-#include <fstream>
+#include <iostream>
 #include "Picture.hpp"
 
-	class Toy {
-		public:
-		enum ToyType {
+class Toy {
+	public:
+		enum ToyType_e {
 			BASIC_TOY,
 			ALIEN,
-                        BUZZ,
-                        WOODY
+			BUZZ,
+			WOODY
 		};
 		Toy();
-		Toy(ToyType type, const std::string &name, const std::string &file);
+		Toy(ToyType_e type, std::string name, const std::string &file);
 		~Toy();
-
-                Toy(Toy const &this_toy);
-                Toy &operator=(Toy const &this_toy);
-
-		std::string getName() const;
-		ToyType getType() const;
-		std::string getAscii() const;
-		void setName(const std::string &name);
-		void setAscii(const std::string &file);
-
-		protected:
-
-		ToyType _type;
+		ToyType_e getType() const {return (_type);}
+		std::string getName() const {return (_name);}
+		void setName(std::string name){_name = name;}
+		bool setAscii(const std::string &file);
+		std::string getAscii() const {return (_picture->data);}
+	protected:
+		ToyType_e _type;
 		std::string _name;
 		Picture *_picture;
-	};
+};
 
-        
-#endif
+#endif /* !TOY_HPP_ */

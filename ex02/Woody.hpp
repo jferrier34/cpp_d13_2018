@@ -1,24 +1,20 @@
 /*
 ** EPITECH PROJECT, 2019
-** Woody.hpp
+** Woody.cpp
 ** File description:
 ** ex02
 */
 
-#ifndef _WOODY_HPP_
-#define _WOODY_HPP_
 
-#include <iostream>
-#include <string>
-#include <fstream>
+#ifndef WOODY_HPP_
+#define WOODY_HPP_
+
 #include "Toy.hpp"
 
-class Woody : public Toy {
-        public:
-                Woody();
-    Woody(const std::string &name, const std::string &file);
-                Woody(const std::string &name);
-                ~Woody();      
+class Woody : public Toy{
+	public:
+	  Woody(std::string name, const std::string &file = "woody.txt");
+    ~Woody();
 };
 
 #endif

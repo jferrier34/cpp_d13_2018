@@ -1,56 +1,46 @@
 /*
 ** EPITECH PROJECT, 2019
-** Picture.cpp
+** Picture.hpp
 ** File description:
-** ex00
+** ex02
 */
 
 #include "Picture.hpp"
-#include "Toy.hpp"
 
-std::string Picture::getData() const
+Picture::Picture()
 {
-        return (_data);
+    data = "";
 }
 
-Picture::Picture(const Picture& this_picture)
+Picture::~Picture()
 {
-        _data = this_picture.getData();
-}
-
-Picture &Picture::operator=(Picture const &this_picture)
-{
-        _data = this_picture.getData();
-        return (*this);
 }
 
 bool Picture::getPictureFromFile(const std::string &file)
 {
-      std::string tmp;
+    std::string tmp;
       std::ifstream my_file(file);
         bool is_ok = true;
                 if (my_file.is_open()) {
                         while (getline(my_file, tmp)) {
-                                _data = _data + tmp + '\n';
+                                data = data + tmp + '\n';
                         }
                         my_file.close();
                 } else {
-                is_ok = false;
-                _data = "ERROR";
+		    is_ok = false;
+                data = "ERROR";
                 }
         return (is_ok);
 }
 
 Picture::Picture(const std::string &file)
 {
-	getPictureFromFile(file);
-}
-
-Picture::Picture()
-{
-	_data = "";
-}
-
-Picture::~Picture()
-{
+    std::ifstream pic(file);
+    std::string line;
+    if(pic) {
+        while (getline(pic, line, '\0'))
+            data += line;
+    } else {
+        data = "ERROR";
+    }
 }
