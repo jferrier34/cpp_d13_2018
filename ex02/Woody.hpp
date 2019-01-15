@@ -16,7 +16,8 @@
 class Woody : public Toy {
         public:
                 Woody();
-                Woody(const std::string &name, const std::string &file);
+    Woody(const std::string &name, const std::string &file);
+                Woody(const std::string &name);
                 ~Woody();      
 };
 
