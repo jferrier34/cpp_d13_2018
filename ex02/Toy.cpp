@@ -23,4 +23,3 @@ bool Toy::setAscii(const std::string &file)
 {
     return (_picture->getPictureFromFile(file));
 }
-
